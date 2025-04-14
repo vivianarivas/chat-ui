@@ -2,15 +2,14 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f3f4f6;
-    margin: 0;
-    padding: 0;
+    margin: 0;    
+    padding: 40px 0; /* opcional: agrega espacio superior e inferior */
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    align-items: center;
   }
   
   .chat-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
     max-width: 800px;
@@ -27,6 +26,13 @@ body {
     margin-bottom: 20px;
     padding-right: 10px;
   }
+
+  .chat-box {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
   
   .message {
     margin: 10px 0;
@@ -75,3 +81,88 @@ body {
   button:hover {
     background-color: #ff5722;
   }
+
+  textarea#user-input {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    resize: none; /* evita que se pueda redimensionar manualmente */
+    overflow: hidden; /* oculta el scroll interno */
+    line-height: 1.5;
+    min-height: 48px; /* <-- esto asegura que entre una línea y media de texto */
+}
+
+.upload-form {
+  margin-top: 4px;
+  padding: 20px 25px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease;
+}
+
+.upload-form:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.upload-form input[type="file"] {
+  display: none;
+}
+
+.upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0f7fa;
+  color: #00796b;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 2px dashed #b2ebf2;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.upload-label:hover {
+  background-color: #b2ebf2;
+  color: #004d40;
+}
+
+.upload-form input[type="text"] {
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.upload-form input[type="text"]:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+.upload-form button {
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-form button:hover {
+  background-color: #388e3c;
+}

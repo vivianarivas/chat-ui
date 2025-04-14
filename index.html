@@ -11,8 +11,16 @@
         <h1>Asistente IA Local</h1>
         <div id="chat-box" class="chat-box"></div>
         <form id="chat-form" class="chat-form">
-            <input type="text" id="user-input" placeholder="Escribí tu pregunta..." autocomplete="off" />
+            <textarea id="user-input" placeholder="Escribí tu pregunta..." autocomplete="off" rows="1"></textarea>
             <button type="submit">Enviar</button>
+        </form>
+        <h2>Subir archivo</h2>
+        <form class="upload-form" id="upload-form">            
+            <label for="file-input" class="upload-label">📁 Seleccionar archivo</label>
+            <input type="file" id="file-input" required>
+            
+            <input type="text" id="topic-input" placeholder="Tema del archivo (topic)" required>
+            <button type="submit">Subir y procesar</button>
         </form>
     </div>
 
