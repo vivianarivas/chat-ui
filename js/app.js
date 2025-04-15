@@ -78,6 +78,9 @@ uploadForm.addEventListener("submit", async (e) => {
     const formData = new FormData();
     formData.append("file", file);
 
+    const uploadStatus = document.getElementById("upload-status");
+    uploadStatus.style.display = "flex"; // Mostrar spinner
+
     try {
         const response = await fetch(`http://localhost:5157/api/extracttext/upload-and-store?filePath=${encodeURIComponent(file.name)}&user=${user}&topic=${encodeURIComponent(topic)}`, {
             method: "POST",
@@ -86,8 +89,12 @@ uploadForm.addEventListener("submit", async (e) => {
 
         const result = await response.json();
 
+        // Mostrar mensaje exitoso
+        uploadStatus.innerHTML = '<span class="status-text" style="color: green;">✅ Archivo subido correctamente</span>';
+
         appendMessage("ai", `📄 Archivo procesado. Respuesta del servidor: ${result.message || "OK"}`);
     } catch (err) {
+        uploadStatus.innerHTML = '<span class="status-text" style="color: red;">❌ Error al subir el archivo</span>';
         appendMessage("ai", "❌ Error al subir el archivo.");
         console.error(err);
     }
